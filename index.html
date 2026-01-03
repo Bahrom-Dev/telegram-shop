@@ -7,26 +7,43 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      background: #f2f2f2;
       margin: 0;
       padding: 10px;
     }
     h2 {
       text-align: center;
     }
+    h3 {
+      margin-top: 20px;
+      color: #333;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
     .product {
-      background: white;
+      background: #fff;
       border-radius: 10px;
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
     }
     .product button {
+      margin-top: 5px;
       background: #2ea6ff;
       color: white;
       border: none;
-      padding: 8px 12px;
+      padding: 6px;
       border-radius: 6px;
+      width: 100%;
       cursor: pointer;
     }
   </style>
@@ -35,30 +52,48 @@
 
 <h2>🛒 Do‘kon</h2>
 
-<div class="product">
-  <h3>Non</h3>
-  <p>Narxi: 3 000 so‘m</p>
-  <button onclick="buy('Non - 3 000 so‘m')">Buyurtma berish</button>
+<!-- KATEGORIYA 1 -->
+<h3>🥖 Non mahsulotlari</h3>
+<div class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/300x200?text=Non">
+    <p>Oddiy non</p>
+    <b>3 000 so‘m</b>
+    <button onclick="buy('Oddiy non - 3 000 so‘m')">Buyurtma</button>
+  </div>
+
+  <div class="product">
+    <img src="https://via.placeholder.com/300x200?text=Baton">
+    <p>Baton</p>
+    <b>5 000 so‘m</b>
+    <button onclick="buy('Baton - 5 000 so‘m')">Buyurtma</button>
+  </div>
 </div>
 
-<div class="product">
-  <h3>Sut</h3>
-  <p>Narxi: 8 000 so‘m</p>
-  <button onclick="buy('Sut - 8 000 so‘m')">Buyurtma berish</button>
-</div>
+<!-- KATEGORIYA 2 -->
+<h3>🥛 Sut mahsulotlari</h3>
+<div class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/300x200?text=Sut">
+    <p>Sut 1L</p>
+    <b>8 000 so‘m</b>
+    <button onclick="buy('Sut 1L - 8 000 so‘m')">Buyurtma</button>
+  </div>
 
-<div class="product">
-  <h3>Tuxum (10 dona)</h3>
-  <p>Narxi: 15 000 so‘m</p>
-  <button onclick="buy('Tuxum - 15 000 so‘m')">Buyurtma berish</button>
+  <div class="product">
+    <img src="https://via.placeholder.com/300x200?text=Qatiq">
+    <p>Qatiq</p>
+    <b>7 000 so‘m</b>
+    <button onclick="buy('Qatiq - 7 000 so‘m')">Buyurtma</button>
+  </div>
 </div>
 
 <script>
   const tg = window.Telegram.WebApp;
   tg.expand();
 
-  function buy(product) {
-    tg.sendData(product);
+  function buy(text) {
+    tg.sendData(text);
     alert("Buyurtma yuborildi ✅");
   }
 </script>
