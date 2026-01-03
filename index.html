@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Do‘kon</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 10px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .product {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product button {
+      background: #2ea6ff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>🛒 Do‘kon</h2>
+
+<div class="product">
+  <h3>Non</h3>
+  <p>Narxi: 3 000 so‘m</p>
+  <button onclick="buy('Non - 3 000 so‘m')">Buyurtma berish</button>
+</div>
+
+<div class="product">
+  <h3>Sut</h3>
+  <p>Narxi: 8 000 so‘m</p>
+  <button onclick="buy('Sut - 8 000 so‘m')">Buyurtma berish</button>
+</div>
+
+<div class="product">
+  <h3>Tuxum (10 dona)</h3>
+  <p>Narxi: 15 000 so‘m</p>
+  <button onclick="buy('Tuxum - 15 000 so‘m')">Buyurtma berish</button>
+</div>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.expand();
+
+  function buy(product) {
+    tg.sendData(product);
+    alert("Buyurtma yuborildi ✅");
+  }
+</script>
+
+</body>
+</html>
